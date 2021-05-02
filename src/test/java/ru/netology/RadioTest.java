@@ -6,6 +6,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
+    //constructor
+
+    @Test
+
+    public void overMinStationConstructor() {
+        Radio radio = new Radio (10, 0, 0, 0, 0, 0);
+        radio.reduceStation();
+        assertEquals(10, radio.getCurrentStation());
+    }
+
+    @Test
+
+    public void overMaxStationConstructor() {
+        Radio radio = new Radio (10, 0, 11, 0, 0, 0);
+        radio.increaseStation();
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+
+    public void overMaxVolumeConstructor() {
+        Radio radio = new Radio (0, 0, 0, 100, 0, 101);
+        radio.increaseVolume();
+        assertEquals(100, radio.getCurrentVolume());
+    }
+
     @Test
     public void shouldGetAndSet() {
         Radio radio = new Radio();
